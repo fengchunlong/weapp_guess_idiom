@@ -45,7 +45,6 @@ Page({
                 wx.getUserInfo({
                   success: function (result) {
                     console.log("已获取到用户信息");
-                    console.log(result.userInfo)
                     // 执行登录
                     that.wxlogin(loginRes.code,result.userInfo.nickname,result.userInfo.avatar)
                   }
@@ -70,7 +69,7 @@ Page({
       mask: true
     });
     wx.request({
-      url: 'http://127.0.0.1:5000/api/users/wx_login/',
+      url: 'http://127.0.0.1:5000/api/users/wx_login',
       data: {
         code: code,
         nickname:nickname,
@@ -101,7 +100,7 @@ Page({
         }
       },
       fail: function () {
-        console.log("wxlogin fail -------------");
+        console.log("wxlogin fail");
         wx.showToast({
           title: '登录失败',
           icon: 'none'

@@ -16,7 +16,7 @@
   </view>
   <view class="weui-msg__extra-area">
     <view class="weui-footer">
-      <view class="weui-footer__text color-white">Copyright © 2017-{{year}} 明日科技</view>
+      <view class="weui-footer__text color-white">Copyright © 2018- 明日科技</view>
     </view>
   </view>
 </view>

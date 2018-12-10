@@ -12,9 +12,8 @@
           <view class="weui-cell__hd">
             <image src="{{item.avatar}}" style="margin-right: 5px;vertical-align: middle;width:40px; height: 40px;"></image>
           </view>
-          <view class="weui-cell__bd">{{item.nickname}}
-            <image wx:if="{{item.gender==1}}" class="gender" src='/images/gender-male.png'></image>
-            <image wx:if="{{item.gender==2}}" class="gender" src='/images/gender-female.png'></image>
+          <view class="weui-cell__bd">
+          {{item.nickname}}
           </view>
           <view class="weui-cell__ft">{{item.sesion}}关</view>
         </view>

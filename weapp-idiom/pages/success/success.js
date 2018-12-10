@@ -1,7 +1,4 @@
 Page({
-  data: {
-    year: (new Date()).getFullYear()
-  },
   bindReback: function () {
     wx.navigateBack({
       delta: 2

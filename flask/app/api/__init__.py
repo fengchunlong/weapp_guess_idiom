@@ -5,6 +5,7 @@ from flask_httpauth import HTTPTokenAuth
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from app.libs.MemberService import MemberService
 from app import db
+from werkzeug.http import HTTP_STATUS_CODES
 
 api = Blueprint('api', __name__)
 
@@ -23,14 +24,24 @@ def verify_token(token):
         return True
     return False
 
+@auth.error_handler
+def token_auth_error():
+    return error_response(401)
 
-@api.route('/users/wx_login/',methods=['POST'])
+def error_response(status_code, message=None):
+    response = {
+        "code": status_code,
+        "msg": HTTP_STATUS_CODES.get(status_code),
+        "data": {}
+    }
+    return jsonify(response)
+
+@api.route('/users/wx_login',methods=['POST'])
 def wx_login():
     req = request.values # 接受数据
     # 接受数据
     nickname = req['nickname'] if 'nickname' in req else ''
     avatar = req['avatar'] if 'avatar' in req else ''
-    sesion = req['sesion'] if 'sesion' in req else 0
     # 判断code 是否存在
     code = req['code'] if 'code' in req else ''
     if not code or len( code ) < 1:
@@ -76,8 +87,8 @@ def wx_login():
                      "avatar": member.avatar,
                      "sesion": member.sesion,
                  },
-                "sesionTotal":sesionTotal,
-                "token": token.decode(),  # byte 转化为string
+            "sesionTotal":sesionTotal,
+            "token": token.decode(),  # byte 转化为string
             }
     }
     return jsonify(result)
@@ -142,7 +153,7 @@ def get_rank():
     for item in members:
         userInfo = {
             "userId": item.id,
-            "nickName": item.nickname,
+            "nickname": item.nickname,
             "avatar": item.avatar,
             "sesion": item.sesion,
         }

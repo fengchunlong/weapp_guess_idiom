@@ -4,9 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    // 初始化数据
-    year: (new Date()).getFullYear(),
-
     sesion: 1,
     image: "",
     answer: "",

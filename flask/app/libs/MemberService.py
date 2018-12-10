@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import hashlib,requests,random,string,json
+import requests,json
 from config import Config
 class MemberService():
     @staticmethod
