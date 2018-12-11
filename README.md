@@ -3,6 +3,7 @@
 闲言少叙，上图看效果。
 
 
+
 ![登录页.png | center | 265x475](https://cdn.nlark.com/yuque/0/2018/png/130433/1544135816482-b492dd51-0de2-4ab1-9104-9622d13e7334.png "")
 
 
@@ -27,6 +28,7 @@
 
 
 
+
 ### 基本技能要求：
 * flask 基础知识
 * 小程序基础知识
@@ -45,36 +47,37 @@
 
 ### 使用说明
 1. 使用pip安装virtualenv，命令如下：
-```bash
+```
 pip install virtualenv
 ```
 2. 在“flask/”目录下，创建venv 虚拟环境，命令如下：
-```bash
+```
 virtualenv  venv
 ```
 3. 启动虚拟环境，
 windows下命令如下：
-```bash
+```
 venv\scripts\activate
 ```
 mac下命令如下：
-```bash
+```
 source venv\bin\activate
 ```
 4. 安装依赖，命令如下：
-```bash
+```
 pip install -r requirements.txt
 ```
 5. 创建数据库，命名为idom
 6. 使用数据迁移命令
-```bash
+```
 python manage.py db init
 python manage.py db migrate
 python manage.py db upgrade
 ```
 7. 创建完数据表后，将“flask\idiom.sql”文件导入到数据库
 8. 启动python,运行如下命令：
-```bash
+```
 python manage.py runserver
 ```
-9. 本地开启小程序
+9. 开启小程序调试工具，新建项目，项目目录是“idiom/weapp-idiom”。
+
